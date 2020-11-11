@@ -15,3 +15,9 @@ class BoardDetailSerializer(ModelSerializer):  # view
         model = Board
         fields = ['id', 'title', 'userid', 'regdate',
                   'views', 'thumbup', 'contents']
+
+
+class BoardCreateSerializer(ModelSerializer):  # create
+    class Meta:
+        model = Board
+        fields = ['title', 'userid', 'contents']

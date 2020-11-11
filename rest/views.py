@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView, RetrieveUpdateDestroyAPIView, CreateAPIView
 
 from board.models import Board
-from rest.serializers import BoardSerializer, BoardDetailSerializer
+from rest.serializers import BoardSerializer, BoardDetailSerializer, BoardCreateSerializer
 
 
 class BoardListView(ListAPIView):
@@ -10,6 +10,13 @@ class BoardListView(ListAPIView):
     serializer_class = BoardSerializer
 
 
-class BoardDetailView(RetrieveAPIView):
+# class BoardDetailView(RetrieveAPIView):
+class BoardDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Board.objects.all()
     serializer_class = BoardDetailSerializer
+
+
+class BoardCreateView(CreateAPIView):
+    queryset = Board.objects.all()
+    serializer_class = BoardCreateSerializer
+
