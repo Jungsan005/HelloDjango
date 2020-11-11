@@ -23,4 +23,5 @@ urlpatterns = [
 
     # path('board/', views.index),
     path('board/', include('board.urls')),
+    path('rest/', include('rest.urls')),
 ]
