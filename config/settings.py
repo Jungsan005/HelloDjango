@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'board.apps.BoardConfig',
     'rest_framework',
+    'rest_framework_xml',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -125,3 +126,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+REST_FRAMEWORK = {
+   'DEFAULT_PARSER_CLASSES' : (
+       'rest_framework_xml.parsers.XMLParser', ),
+   'DEFAULT_RENDERER_CLASSES' : (
+       'rest_framework_xml.renderers.XMLRenderer', ),
+}
